@@ -27,11 +27,23 @@ known_ext_dict = {}
 cpf = {} # count peremishchenna fajliv - потрібен для перейменування файлів з однаковими іменами, для кожної окремої папки буде починатися свій відлік,
 # якщо у різних папках зовсім різні файли з однаковим іменем для прикладу (Документ Microsoft Word.docx). в одному може бути реферат а в іншому перелік покупок ))
 def dz6():
-    try:
+    if len(sys.argv) > 1:
         folder_path = Path(sys.argv[1])  
-    except IndexError:
-        print("Не введено шляху")
-        return  
+    else: 
+        while True:
+            print (f'Ви дійсно хочете відсортувати поточну папку')
+            get_answer = input("Y / N: ")
+            if get_answer.lower() == 'y':
+                folder_path = Path.cwd()
+                break
+            elif get_answer.lower() == 'n':
+                get_input = input("Введіть шлях: ")
+                folder_path = Path(get_input)
+                break
+            else:
+                print('Неправильна відповідь\n')
+                continue
+            
     if not folder_path.exists():
         print ("Шляху до папки не існує")
         return 
