@@ -1,6 +1,7 @@
 from pathlib import Path
 import shutil, sys
 
+
 TRANSLIT_DICT = {
     ord("а"): "a", ord("б"): "b", ord("в"): "v", ord("г"): "g", ord("д"): "d", ord("е"): "e", ord("є"): "ie", ord("ж"): "zh", ord("з"): "z",
     ord("и"): "i", ord("і"): "i", ord("ї"): "ji", ord("й"): "j", ord("к"): "k", ord("л"): "l", ord("м"): "m", ord("н"): "n", ord("о"): "o",
@@ -118,6 +119,7 @@ def main():
     for obj in Path(folder_path).glob('*'):  # видалення лишніх папок
         if obj.name not in all_known_ext and obj.name != "others":
             shutil.rmtree(obj)
+
 
     print ("Готово")
     return 

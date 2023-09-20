@@ -1,2 +1,2 @@
 [console_scripts]
-clean_folder = clean_folder.clean:dz6
+clean_folder = clean_folder.clean:main
